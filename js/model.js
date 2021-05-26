@@ -4,14 +4,14 @@ import { controller } from './controller.js';
 
 const model = {
   boardSize: 7,
-  numShips: 1,
+  numShips: 3,
   shipLength: 3,
   shipSunk: 0,
 
   ships: [
     { locations: ['06', '16', '26'], hits: ['', '', ''], },
-    // { locations: ['24', '34', '44'], hits: ['', '', ''], },
-    // { locations: ['10', '11', '12'], hits: ['', '', ''], },
+    { locations: ['24', '34', '44'], hits: ['', '', ''], },
+    { locations: ['10', '11', '12'], hits: ['', '', ''], },
   ],
 
   fire: function (guess) {

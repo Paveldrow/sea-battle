@@ -1,12 +1,22 @@
 import { view } from "./view.js";
 import { model } from './model.js';
 
-
 const controller = {
   guesses: 0,
   processGuess: function (guess) {
     const location = parseGuess(guess);
     if (location) {
+      this.guesses++;
+      const hit = model.fire(location);
+      if (hit && model.shipSunk === model.numShips) {
+        view.displayMessage('Вы потопили все корабли за ' + this.guesses + ' выстрелов');
+      }
+    };
+  },
+
+  mouseGuess: function (location) {
+    if (location) {
+      this.guesses++;
       const hit = model.fire(location);
       if (hit && model.shipSunk === model.numShips) {
         view.displayMessage('Вы потопили все корабли за ' + this.guesses + ' выстрелов');
@@ -36,16 +46,18 @@ const parseGuess = function (guess) {
   return null;
 };
 
-
 const inputFireButton = function () {
   const guessInput = document.querySelector('.form__input');
   const fireButton = document.querySelector('.fire-button');
 
   fireButton.addEventListener('click', (evt) => {
     evt.preventDefault();
-    const guess = guessInput.value.toUpperCase();
-    controller.processGuess(guess);
-    guessInput.value = '';
+    const guess = guessInput.value.toUpperCase(); 
+    // if (model.shipSunk < model.numShips) {
+      controller.processGuess(guess);
+      console.log(model.shipSunk);
+      guessInput.value = '';
+    // };
   });
 };
 
@@ -54,8 +66,11 @@ const mouseShoot = () => {
   for (let cell of cells) {
     cell.addEventListener('click', (evt) => {
       evt.preventDefault();
-      const location = cell.getAttribute('id');
-      model.fire(location);
+      const target = cell.getAttribute('id');
+      // if (model.shipSunk < model.numShips) {
+        controller.mouseGuess(target);
+        console.log(model.shipSunk);
+      // };
     });
   };
 };
