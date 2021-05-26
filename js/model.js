@@ -86,8 +86,8 @@ const model = {
   },
 };
 
-const generatePosition = () => {
+const generateShipsPosition = () => {
   model.generateShipLocations();
 }
 
-export { model, generatePosition };
+export { model, generateShipsPosition };

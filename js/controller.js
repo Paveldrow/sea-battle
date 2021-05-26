@@ -74,4 +74,4 @@ const mouseShoot = () => {
 };
 
 
-export { controller, inputFireButton, mouseShoot };
+export {inputFireButton, mouseShoot };

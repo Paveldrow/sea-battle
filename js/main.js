@@ -1,6 +1,6 @@
-import {generatePosition} from './model.js';
+import {generateShipsPosition} from './model.js';
 import {inputFireButton, mouseShoot} from './controller.js';
    
-generatePosition();
+generateShipsPosition();
 inputFireButton();
 mouseShoot();
