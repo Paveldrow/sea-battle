@@ -52,10 +52,9 @@ const inputFireButton = function () {
 
   fireButton.addEventListener('click', (evt) => {
     evt.preventDefault();
-    const guess = guessInput.value.toUpperCase(); 
+    const guess = guessInput.value.toUpperCase();
     if (model.shipSunk < model.numShips) {
       controller.processGuess(guess);
-      console.log(model.shipSunk);
       guessInput.value = '';
     };
   });
@@ -69,7 +68,6 @@ const mouseShoot = () => {
       const target = cell.getAttribute('id');
       if (model.shipSunk < model.numShips) {
         controller.mouseGuess(target);
-        console.log(model.shipSunk);
       };
     });
   };

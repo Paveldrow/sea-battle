@@ -1,6 +1,4 @@
 import { view } from "./view.js";
-import { controller } from './controller.js';
-
 
 const model = {
   boardSize: 7,
@@ -72,7 +70,6 @@ const model = {
         newShipLocations.push((row + i) + '' + String(col));
       }
     };
-    console.log(newShipLocations);
     return newShipLocations;
   },
 
@@ -89,4 +86,8 @@ const model = {
   },
 };
 
-export { model };
+const generatePosition = () => {
+  model.generateShipLocations();
+}
+
+export { model, generatePosition };

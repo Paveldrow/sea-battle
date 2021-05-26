@@ -1,8 +1,6 @@
-import {view} from './view.js';
-import {model} from './model.js';
-import {controller, inputFireButton, mouseShoot} from './controller.js';
+import {generatePosition} from './model.js';
+import {inputFireButton, mouseShoot} from './controller.js';
    
-model.generateShipLocations();
+generatePosition();
 inputFireButton();
 mouseShoot();
-console.log(model.ships);
